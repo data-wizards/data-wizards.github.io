@@ -19,18 +19,15 @@ How important are the aesthetics of a children's book cover? Are there good/bad 
 ## Dataset
 We start the project with [this publicly available dataset](https://github.com/uchidalab/book-dataset). It has the following columns:
 
-| ID  | Filename | Image URL | Title | Author | Category ID | Category |
-| --- | -------- | --------- | ----- | ------ | ----------- | -------- |
-
 | ID | Filename | Image URL | Title | Category ID | Category |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| Num | Num.jpg | amazon.com | Book Name | Num | Children's |
+| Book ID | bookid.jpg | amazon.com/... | Book Name | Category ID | Children's |
 
 In order to answer the research questions, we need a dataset that looks more like:
 
 | ID | Review Score | Sales Rank | Title | Author | Date    | Visual Features |
 | -- | ------------ | ---------- | ----- | ------ | ------- | --------------- |
-| -- | ------------ | ---------- | ----- | ------ | ------- | --------------- |
+| ID | Review Score | Sales Rank | Title | Author | Date    | Visual Features |
 
 The `ID` column in the data can be used to access the webpage of each book, by connecting to https://www.amazon.com/dp/book-id. This allows us to scrape any data that is missing directly from Amazon.
 
