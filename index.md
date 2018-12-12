@@ -19,9 +19,9 @@ How important are the aesthetics of a children's book cover? Are there good/bad 
 ## Dataset
 We start the project with [this publicly available dataset](https://github.com/uchidalab/book-dataset). It has the following columns:
 
-| ID | Filename | Image URL | Title | Category ID | Category |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| Book ID | bookid.jpg | amazon.com/... | Book Name | Category ID | Children's |
+| ID | Filename | Image URL | Title | Author | Category ID | Category |
+| -- | -------- | --------- | ----- | ------ | ----------- | -------- |
+| ID | Filename | Image URL | Title | Author | Category ID | Category |
 
 In order to answer the research questions, we need a dataset that looks more like:
 
