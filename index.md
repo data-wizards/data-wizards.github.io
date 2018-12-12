@@ -27,6 +27,12 @@ In order to answer the research questions, we need a dataset that looks more lik
 | ID | Review Score | Sales Rank | Title | Author | Date    | Visual Features |
 | --- | ------------ | ---------- | ----- | ------ | ------- | --------------- |
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 The `ID` column in the data can be used to access the webpage of each book, by connecting to https://www.amazon.com/dp/book-id. This allows us to scrape any data that is missing directly from Amazon.
 
 The columns we are missing are `Review Score`, `Sales Rank`, `Date` and `Visual Features`. We scrape the first three directly from the product pages from Amazon and download the cover images using the URLs in the dataset. We then extract the visual features from each image using [OpenCV](https://opencv.org/) and other methods, completing our dataset.
