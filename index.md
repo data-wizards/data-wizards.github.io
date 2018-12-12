@@ -9,7 +9,15 @@ Originally, [the suggested project idea](https://dlab.epfl.ch/teaching/fall2018/
 
 In this project we also restricted our problem to the domain of children's books. Different types of covers may work better for different categories of books, and we may see effects in specific categories that are not observable when looking at all of them (and vice versa). We intuitively believe children's books will be the category that is most dependent on the visual features of their covers, so we focus on them for this project. This specification also allows us to account for the changes in sales and reviews between different categories so all our samples now come from the same distribution (more or less).
 
-In this project we have examined the sale rate of the children's book and the relationship to XX, YY, together with semantically meaningful features extracted from the book covers. In this datastory we will guide you throw the most interesting of our findings. Judging books by the cover....
+In this project we have examined the sale rate of the children's book and the relationship to XX, YY, together with semantically meaningful features extracted from the book covers. In this datastory we will guide you throw the most interesting of our findings. Let's judge some books by thei cover....
+
+# Research questions
+How important are the aesthetics of a children's book cover? Are there good/bad cover practices?
+- How can we find and extract semantically meaningful/interpretable features of book covers?
+- How can we fit a good model that uses these features to predict sales/reviews?
+- How can we analyze which of the features were the most important ones in this model?
+- How can we specify and interpret the effects of changing each of these important features on the output variables?
+
 
 ## Data Processing
 One of the main challenges of this project has been that all data had to be scraped from Amazon directly, since the data which was publicly available was mainly reviews. We start the project with [this publicly available dataset](https://github.com/uchidalab/book-dataset). It has the following columns:
@@ -30,18 +38,30 @@ The columns we are missing are `Review Score`, `Sales Rank`, `Date` and `Visual 
 
 [//]: # The `Title`, `Author` and `Date` columns don't directly relate to the research questions, but can allow some interesting further analysis if time allows. For example, do good/bad cover practices change over time?
 
-# Research questions
-How important are the aesthetics of a children's book cover? Are there good/bad cover practices?
-- How can we find and extract semantically meaningful/interpretable features of book covers?
-- How can we fit a good model that uses these features to predict sales/reviews?
-- How can we analyze which of the features were the most important ones in this model?
-- How can we specify and interpret the effects of changing each of these important features on the output variables?
 
-kdæds
+PLOT TO HIGHLIGHT SOME PREPROCESSING?
 
 
+## Exploratory Analysis
 
 
+PLOT
+
+As seen in the above plot, ...
+
+## Analysis
+
+In this section we will present to you the results of the boosted ensemble of tree model from *CatBoost*.
+This one is chosen due to better performance compared to the other libraries working with *SHAP*.
+
+
+## Conclusion
+
+In this project we have seen that ...
+
+
+
+NOTES:
 
 ## Challenges
 We could approach the problem in two ways, each with its unique set of challenges.
