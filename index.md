@@ -28,34 +28,20 @@ The `ID` column in the data can be used to access the webpage of each book, by c
 
 The columns we are missing are `Review Score`, `Sales Rank`, `Date` and `Visual Features`. We scrape the first three directly from the product pages from Amazon and download the cover images using the URLs in the dataset. We then extract the visual features from each image using [OpenCV](https://opencv.org/) and other methods, completing our dataset.
 
->The `Title`, `Author` and `Date` columns don't directly relate to the research questions, but can allow some interesting further analysis if time allows. For example, do good/bad cover practices change over time?
+[//]: # The `Title`, `Author` and `Date` columns don't directly relate to the research questions, but can allow some interesting further analysis if time allows. For example, do good/bad cover practices change over time?
 
-
-## Research questions
+# Research questions
 How important are the aesthetics of a children's book cover? Are there good/bad cover practices?
 - How can we find and extract semantically meaningful/interpretable features of book covers?
 - How can we fit a good model that uses these features to predict sales/reviews?
 - How can we analyze which of the features were the most important ones in this model?
 - How can we specify and interpret the effects of changing each of these important features on the output variables?
 
-# Dataset
-We start the project with [this publicly available dataset](https://github.com/uchidalab/book-dataset). It has the following columns:
+kdæds
 
-| ID | Filename | Image URL | Title | Author | Category ID | Category |
-| -- | -------- | --------- | ----- | ------ | ----------- | -------- |
-| ID | Filename | Image URL | Title | Author | Category ID | Category |
 
-In order to answer the research questions, we need a dataset that looks more like:
 
-| ID | Review Score | Sales Rank | Title | Author | Date    | Visual Features |
-| -- | ------------ | ---------- | ----- | ------ | ------- | --------------- |
-| ID | Review Score | Sales Rank | Title | Author | Date    | Visual Features |
 
-The `ID` column in the data can be used to access the webpage of each book, by connecting to https://www.amazon.com/dp/book-id. This allows us to scrape any data that is missing directly from Amazon.
-
-The columns we are missing are `Review Score`, `Sales Rank`, `Date` and `Visual Features`. We scrape the first three directly from the product pages from Amazon and download the cover images using the URLs in the dataset. We then extract the visual features from each image using [OpenCV](https://opencv.org/) and other methods, completing our dataset.
-
-The `Title`, `Author` and `Date` columns don't directly relate to the research questions, but can allow some interesting further analysis if time allows. For example, do good/bad cover practices change over time?
 
 ## Challenges
 We could approach the problem in two ways, each with its unique set of challenges.
