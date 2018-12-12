@@ -21,7 +21,10 @@ We start the project with [this publicly available dataset](https://github.com/u
 
 | ID  | Filename | Image URL | Title | Author | Category ID | Category |
 | --- | -------- | --------- | ----- | ------ | ----------- | -------- |
-| --- |          | --------- | ----- | ------ | ----------- | -------- |
+
+| ID | Filename | Image URL | Title | Category ID | Category |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| Num | Num.jpg | amazon.com | Book Name | Num | Children's |
 
 In order to answer the research questions, we need a dataset that looks more like:
 
