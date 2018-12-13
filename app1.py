@@ -11,6 +11,9 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 df = pd.read_csv(
     'https://raw.githubusercontent.com/dogatekin/Project/master/metadata.csv')
 
+x = df['Review Score']
+X = x[x>0.5]
+
 
 app.layout = html.Div([
     dcc.Graph(
@@ -18,9 +21,9 @@ app.layout = html.Div([
         figure={
             'data': [
                 go.Scatter(
-                    x=df['Review Score'],
+                    x=X,
                     y=df['Sales Rank'],
-                    #text=df['Title'],
+                    text=df['Title'],
                     mode='markers',
                     opacity=0.7,
                     marker={
