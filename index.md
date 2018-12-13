@@ -42,7 +42,7 @@ The columns we are missing are `Review Score`, `Sales Rank`, `Date` and `Visual 
 The visual semantically meaningful features we have chosen to work with in this project are highlighted in the below interactive tree plot. By clicking the circles, information about the features will appear.
 
 
-<iframe src="https://raw.githubusercontent.com/data-wizards/data-wizards.github.io/master/dendogram.html" width="100%" height="400px"></iframe>
+<iframe src="https://github.com/data-wizards/data-wizards.github.io/blob/master/dendogram.html" width="100%" height="400px"></iframe>
 
 
 ## Exploratory Analysis
