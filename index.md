@@ -9,9 +9,9 @@ Originally, [the suggested project idea](https://dlab.epfl.ch/teaching/fall2018/
 
 In this project we also restricted our problem to the domain of children's books. Different types of covers may work better for different categories of books, and we may see effects in specific categories that are not observable when looking at all of them (and vice versa). We intuitively believe children's books will be the category that is most dependent on the visual features of their covers, so we focus on them for this project. This specification also allows us to account for the changes in sales and reviews between different categories so all our samples now come from the same distribution (more or less).
 
-In this project we have examined the sale rate of the children's book and the relationship to XX, YY, together with semantically meaningful features extracted from the book covers. In this datastory we will guide you throw the most interesting of our findings. Let's judge some books by thei cover....
+In this project we have examined the sale rate of the children's book and the relationship to XX, YY, together with semantically meaningful features extracted from the book covers. In this data story we will guide you throw the most interesting of our findings. Let's judge some books by their cover....
 
-# Research questions
+## Research questions
 How important are the aesthetics of a children's book cover? Are there good/bad cover practices?
 - How can we find and extract semantically meaningful/interpretable features of book covers?
 - How can we fit a good model that uses these features to predict sales/reviews?
@@ -40,10 +40,6 @@ The columns we are missing are `Review Score`, `Sales Rank`, `Date` and `Visual 
 
 
 PLOT TO HIGHLIGHT SOME PREPROCESSING?
-<div>
-    <a href="https://plot.ly/~dogatekin/1/?share_key=99B7isgJnRL7uCbSVo1kJP" target="_blank" title="Example" style="display: block; text-align: center;"><img src="https://plot.ly/~dogatekin/1.png?share_key=99B7isgJnRL7uCbSVo1kJP" alt="Example" style="max-width: 100%;width: 500px;"  width="500" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="dogatekin:1" sharekey-plotly="99B7isgJnRL7uCbSVo1kJP" src="https://plot.ly/embed.js" async></script>
-</div>
 
 
 ## Exploratory Analysis
