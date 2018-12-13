@@ -9,7 +9,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 df = pd.read_csv(
-    'https://gist.githubusercontent.com/PernilleLindvang/c5526dfcb595e616970a06dbc81dfa2f/raw/e202301a3c4986c121fc7cfa5f6895647eb36783/Books.csv')
+    'https://raw.githubusercontent.com/dogatekin/Project/master/subsetDF.csv')
 
 
 app.layout = html.Div([
@@ -23,9 +23,9 @@ app.layout = html.Div([
                     #py.iplot(data, filename='normalized histogram')
             ,
             'layout': go.Layout(
-                xaxis={'type': 'log','title': 'Bins'},
-                yaxis={'type': 'log','title': 'Sales Rank'},
-                margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
+                xaxis={'title': 'Bins'},
+                yaxis={'title': 'Sales Rank'},
+                margin={'l': 50, 'b': 30, 't': 40, 'r': 40},
                 legend={'x': 0, 'y': 1},
                 hovermode='closest'
             )
