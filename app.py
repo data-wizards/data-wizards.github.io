@@ -23,8 +23,8 @@ app.layout = html.Div([
                     #py.iplot(data, filename='normalized histogram')
             ,
             'layout': go.Layout(
-                xaxis={'title': 'Bins'},
-                yaxis={'title': 'Sales Rank'},
+                xaxis={'type': 'log','title': 'Bins'},
+                yaxis={'type': 'log','title': 'Sales Rank'},
                 margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
                 legend={'x': 0, 'y': 1},
                 hovermode='closest'

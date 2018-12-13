@@ -39,7 +39,7 @@ The columns we are missing are `Review Score`, `Sales Rank`, `Date` and `Visual 
 [//]: # The `Title`, `Author` and `Date` columns don't directly relate to the research questions, but can allow some interesting further analysis if time allows. For example, do good/bad cover practices change over time?
 
 
-The visual semantically meaningful features we have chosen to work with in this project are highlighted below:
+The visual semantically meaningful features we have chosen to work with in this project are highlighted in the below interactive tree plot. By clicking the circles, information about the features will appear. 
 
 
 <html lang="en">
@@ -292,7 +292,7 @@ As the first exploratory plot we will examine the distribtion of our response va
 </div>
 
 
-As seen in the above plot, ...
+As seen in the above plot, our response variable follow a power-log distribution. Just as the literature says, plotting the distribution on a log-log scale the plot distribution becomes linear.
 
 In the plot below we examine the correlation between the response variable, `Sales Rank` and the continuous variable, `Review Score`.
 
