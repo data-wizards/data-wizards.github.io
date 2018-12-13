@@ -39,12 +39,15 @@ The columns we are missing are `Review Score`, `Sales Rank`, `Date` and `Visual 
 [//]: # The `Title`, `Author` and `Date` columns don't directly relate to the research questions, but can allow some interesting further analysis if time allows. For example, do good/bad cover practices change over time?
 
 
-PLOT TO HIGHLIGHT SOME PREPROCESSING?
+The visual semantically meaningful features we have chosen to work with in this project are highlighted below:
+
+
+PLOT
 
 
 ## Exploratory Analysis
 
-In the plot below we examine the correlation between the response variable, `Sales Rank` and the continuous variable, `Review Score`.
+As the first exploratory plot we will examine the distribtion of our response variable, `Sales Rank`.
 
 <div>
     <a href="https://plot.ly/~PernilleLindvang/1/?share_key=regkrHjAbQB1byAT7K6pl1" target="_blank" title="Plot 1" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/1.png?share_key=regkrHjAbQB1byAT7K6pl1" alt="Plot 1" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
@@ -53,6 +56,16 @@ In the plot below we examine the correlation between the response variable, `Sal
 
 
 As seen in the above plot, ...
+
+In the plot below we examine the correlation between the response variable, `Sales Rank` and the continuous variable, `Review Score`.
+
+<div>
+    <a href="https://plot.ly/~PernilleLindvang/3/?share_key=bnc7V7cFyOKUeulF5oPQt9" target="_blank" title="Plot 3" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/3.png?share_key=bnc7V7cFyOKUeulF5oPQt9" alt="Plot 3" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:3" sharekey-plotly="bnc7V7cFyOKUeulF5oPQt9" src="https://plot.ly/embed.js" async></script>
+</div>
+
+
+As seen in the above scatterplot the `Review Score` is not a categorical variable, but it does to a large extent act like one. As it is seen from the above plot there are no review scores between 0 and 1, and very limited reviews between the rest of the integers in the 1-5 scale. This might be due to the reviewers finding it too difficult to judge a book to be 3,6 instead of just 4.
 
 ## Analysis
 
