@@ -40,6 +40,10 @@ The columns we are missing are `Review Score`, `Sales Rank`, `Date` and `Visual 
 
 
 PLOT TO HIGHLIGHT SOME PREPROCESSING?
+<div>
+    <a href="https://plot.ly/~dogatekin/1/?share_key=99B7isgJnRL7uCbSVo1kJP" target="_blank" title="Example" style="display: block; text-align: center;"><img src="https://plot.ly/~dogatekin/1.png?share_key=99B7isgJnRL7uCbSVo1kJP" alt="Example" style="max-width: 100%;width: 500px;"  width="500" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="dogatekin:1" sharekey-plotly="99B7isgJnRL7uCbSVo1kJP" src="https://plot.ly/embed.js" async></script>
+</div>
 
 
 ## Exploratory Analysis
