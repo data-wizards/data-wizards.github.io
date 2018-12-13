@@ -2,6 +2,20 @@
 title: Judging Covers
 ---
 
+December is always busy. Are you late for Christmas presents again this year? Do you have a lot of young cousins and nieces, and do not know what parameters to choose from when buying books?
+
+
+PICTURES ON TWO BOOKCOVERS
+
+
+So, based on the looks of these two book covers, which one would you buy? Which one would you think had the highest review score? Take your time to think....
+
+
+ Buckle up and get ready to go through the data story which will uncover the scientific answer to the questions above, and will make sure you are on the same _page_ as the younger ones for the holiday seasons in the years to come.
+
+
+
+
 ## Introduction
 We would like to judge books by their covers and tell the story of how the aesthetics of a book's cover can influence its reception by the general public, as measured by its sales and reviews.
 
@@ -47,7 +61,7 @@ The visual semantically meaningful features we have chosen to work with in this 
 
 ## Exploratory Analysis
 
-As the first exploratory plot we will examine the distribution of our initial response variable, `Sales Rank`, and also of the other possible response variable, `Review Score`. 
+As the first exploratory plot we will examine the distribution of our initial response variable, `Sales Rank`, and also of the other possible response variable, `Review Score`.
 
 <div>
     <a href="https://plot.ly/~PernilleLindvang/15/?share_key=QMvfYzETSaLhbU5wCN9LPB" target="_blank" title="Plot 15" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/15.png?share_key=QMvfYzETSaLhbU5wCN9LPB" alt="Plot 15" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
