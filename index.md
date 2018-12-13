@@ -60,11 +60,12 @@ As seen in the above plot, our response variable follow a power-log distribution
 In the plot below we examine the correlation between the response variable, `Sales Rank` and the continuous variable, `Review Score`.
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/5/?share_key=WKlsCjldxGdTfVWEQzrEez" target="_blank" title="Plot 5" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/5.png?share_key=WKlsCjldxGdTfVWEQzrEez" alt="Plot 5" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:5" sharekey-plotly="WKlsCjldxGdTfVWEQzrEez" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/13/?share_key=8Slp6SgnHXutG1W6uRYTx3" target="_blank" title="Plot 13" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/13.png?share_key=8Slp6SgnHXutG1W6uRYTx3" alt="Plot 13" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:13" sharekey-plotly="8Slp6SgnHXutG1W6uRYTx3" src="https://plot.ly/embed.js" async></script>
 </div>
 
 
+From this plot you can see each book with the `Title` and the corresponding `Review Score` and `Score Rank` when hovering over the datapoints. 
 As seen in the above scatterplot the `Review Score` is not a categorical variable, but it does to a large extent act like one. We have taken out the books with a review score of 0 since this is due to the book not being reviewed. As it is seen from the above plot there are very limited reviews between the rest of the integers in the 1-5 scale. This might be due to the reviewers finding it too difficult to judge a book to be 3,6 instead of just 4.
 
 Furthermore, since we wish to explore the ability of predicting the `Sales Rank` or the `Review Score` based on visual features, `Entropy`, `Brightness`, and `Keypoints` are visualised against the two proposed response variables.

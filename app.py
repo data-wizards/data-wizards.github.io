@@ -25,7 +25,7 @@ app.layout = html.Div([
             'layout': go.Layout(
                 xaxis={'title': 'Bins'},
                 yaxis={'title': 'Sales Rank'},
-                margin={'l': 50, 'b': 30, 't': 40, 'r': 40},
+                margin={'l': 40, 'b': 30, 't': 50, 'r': 50},
                 legend={'x': 0, 'y': 1},
                 hovermode='closest'
             )

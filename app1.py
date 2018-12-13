@@ -9,7 +9,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 df = pd.read_csv(
-    'https://raw.githubusercontent.com/dogatekin/Project/master/metadata.csv')
+    'https://raw.githubusercontent.com/dogatekin/Project/master/subsetDF.csv')
 
 x = df['Review Score']
 X = x[x>0.5]
