@@ -47,7 +47,7 @@ The visual semantically meaningful features we have chosen to work with in this 
 
 ## Exploratory Analysis
 
-As the first exploratory plot we will examine the distribtion of our response variable, `Sales Rank`.
+As the first exploratory plot we will examine the distribution of our response variable, `Sales Rank`.
 
 <div>
     <a href="https://plot.ly/~PernilleLindvang/1/?share_key=regkrHjAbQB1byAT7K6pl1" target="_blank" title="Plot 1" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/1.png?share_key=regkrHjAbQB1byAT7K6pl1" alt="Plot 1" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
@@ -66,6 +66,14 @@ In the plot below we examine the correlation between the response variable, `Sal
 
 
 As seen in the above scatterplot the `Review Score` is not a categorical variable, but it does to a large extent act like one. We have taken out the books with a review score of 0 since this is due to the book not being reviewed. As it is seen from the above plot there are very limited reviews between the rest of the integers in the 1-5 scale. This might be due to the reviewers finding it too difficult to judge a book to be 3,6 instead of just 4.
+
+Furthermore, since we wish to explore the ability of predicting the `Sales Rank` or the `Review Score` based on visual features, `Entropy`, `Brightness`, and `Keypoints` are visualised against the two proposed response variables.
+
+<div>
+    <a href="https://plot.ly/~PernilleLindvang/7/?share_key=X1Wudl3wYnsRY5wjCwGuty" target="_blank" title="Plot 7" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/7.png?share_key=X1Wudl3wYnsRY5wjCwGuty" alt="Plot 7" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:7" sharekey-plotly="X1Wudl3wYnsRY5wjCwGuty" src="https://plot.ly/embed.js" async></script>
+</div>
+
 
 ## Analysis
 
