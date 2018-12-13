@@ -91,15 +91,16 @@ Furthermore, since we wish to explore the ability of predicting the `Sales Rank`
 </div>
 
 
-From this we actually see that some of these visual features have some kind of explanatory relationship with the `Sales Rank`.
+From this we actually see that some of these visual features have some kind of explanatory relationship with the `Sales Rank`. More specifically we see for `Entropy` that higher values of entropy score tends to give higher sales rank. For `brightness` it seems neither too bright or too dark will give a high sales rank. Lastly, for keypoints, which is another way of calculating a measure of complexity, the less complex the lower the sales rank. Especially the keypoints make sense when we take into account that this is for children's books - the simpler the cover, the better the sales rank.
 Let's examine the same for `Review Score`.
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/17/?share_key=WJGuPasc4Sq789Nijg5H89" target="_blank" title="Plot 17" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/17.png?share_key=WJGuPasc4Sq789Nijg5H89" alt="Plot 17" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:17" sharekey-plotly="WJGuPasc4Sq789Nijg5H89" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/19/?share_key=uNWfeF3g0yH5ylV9kCgxLS" target="_blank" title="Plot 19" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/19.png?share_key=uNWfeF3g0yH5ylV9kCgxLS" alt="Plot 19" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:19" sharekey-plotly="uNWfeF3g0yH5ylV9kCgxLS" src="https://plot.ly/embed.js" async></script>
 </div>
 
-Here, we see a very different pattern for the visual features and the response variable. Again, the plot is very affected by `Review Score` being a bit categorical in nature. 
+
+Here, we see a very different pattern for the visual features and the response variable. Again, the plot is very affected by `Review Score` being a bit categorical in nature.
 
 ## Analysis
 

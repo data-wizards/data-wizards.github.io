@@ -14,19 +14,22 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 df = pd.read_csv(
     'https://raw.githubusercontent.com/dogatekin/Project/master/subsetDF.csv')
 
+x = df['Review Score']
+X = x[x>0.5]
+
 Entropy = go.Scatter(
     x=df['Entropy'],
-    y=df['Review Score'],
+    y=X,
     mode='markers'
 )
 Brightness = go.Scatter(
     x=df['Brightness'],
-    y=df['Review Score'],
+    y=X,
     mode='markers'
 )
 Keypoints = go.Scatter(
     x=df['Keypoints'],
-    y=df['Review Score'],
+    y=X,
     mode='markers',
     #axis={'title': 'Sales Rank'}
 )
