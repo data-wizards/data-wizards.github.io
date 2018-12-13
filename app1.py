@@ -13,7 +13,7 @@ df = pd.read_csv(
 
 x = df['Review Score']
 X = x[x>0.5]
-
+n
 
 app.layout = html.Div([
     dcc.Graph(

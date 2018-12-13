@@ -47,12 +47,13 @@ The visual semantically meaningful features we have chosen to work with in this 
 
 ## Exploratory Analysis
 
-As the first exploratory plot we will examine the distribution of our response variable, `Sales Rank`.
+As the first exploratory plot we will examine the distribution of our initial response variable, `Sales Rank`, and also of the other possible response variable, `Review Score`. 
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/11/?share_key=t5mSfh6yUvpN0kd2jhHQTE" target="_blank" title="Plot 11" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/11.png?share_key=t5mSfh6yUvpN0kd2jhHQTE" alt="Plot 11" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:11" sharekey-plotly="t5mSfh6yUvpN0kd2jhHQTE" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/15/?share_key=QMvfYzETSaLhbU5wCN9LPB" target="_blank" title="Plot 15" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/15.png?share_key=QMvfYzETSaLhbU5wCN9LPB" alt="Plot 15" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:15" sharekey-plotly="QMvfYzETSaLhbU5wCN9LPB" src="https://plot.ly/embed.js" async></script>
 </div>
+
 
 
 As seen in the above plot, our response variable follow a power-log distribution. Just as the literature says, plotting the distribution on a log-log scale the plot distribution becomes linear.
@@ -65,7 +66,7 @@ In the plot below we examine the correlation between the response variable, `Sal
 </div>
 
 
-From this plot you can see each book with the `Title` and the corresponding `Review Score` and `Score Rank` when hovering over the datapoints. 
+From this plot you can see each book with the `Title` and the corresponding `Review Score` and `Score Rank` when hovering over the datapoints.
 As seen in the above scatterplot the `Review Score` is not a categorical variable, but it does to a large extent act like one. We have taken out the books with a review score of 0 since this is due to the book not being reviewed. As it is seen from the above plot there are very limited reviews between the rest of the integers in the 1-5 scale. This might be due to the reviewers finding it too difficult to judge a book to be 3,6 instead of just 4.
 
 Furthermore, since we wish to explore the ability of predicting the `Sales Rank` or the `Review Score` based on visual features, `Entropy`, `Brightness`, and `Keypoints` are visualised against the two proposed response variables.
