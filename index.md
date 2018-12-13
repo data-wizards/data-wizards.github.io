@@ -44,8 +44,13 @@ PLOT TO HIGHLIGHT SOME PREPROCESSING?
 
 ## Exploratory Analysis
 
+In the plot below we examine the correlation between the response variable, `Sales Rank` and the continuous variable, `Review Score`.
 
-PLOT
+<div>
+    <a href="https://plot.ly/~PernilleLindvang/1/?share_key=regkrHjAbQB1byAT7K6pl1" target="¢¢_blank" title="Plot 1" style="display: block; text-align: center;"><img src="https:plot.ly~PernilleLindvang1.png?share_key=regkrHjAbQB1byAT7K6pl1" alt="Plot 1" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https:/plot.ly404.png';" /></a>
+    <script data-plotly="PernilleLindvang:1" sharekey-plotly="regkrHjAbQB1byAT7K6pl1" src="https://plot.ly/embed.js" async>
+    </script>
+</div>
 
 As seen in the above plot, ...
 
