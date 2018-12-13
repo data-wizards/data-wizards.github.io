@@ -2,7 +2,7 @@
 title: Judging Covers
 ---
 
-December is always busy. Are you late for Christmas presents again this year? Do you have a lot of young cousins and nieces, and do not know what parameters to choose from when buying books?
+December is always a busy month. Are you late for Christmas presents again this year? Do you have a lot of young nephew and nieces, and do not know how to choose from the million of books found online?
 
 
 PICTURES ON TWO BOOKCOVERS
@@ -92,7 +92,14 @@ Furthermore, since we wish to explore the ability of predicting the `Sales Rank`
 
 
 From this we actually see that some of these visual features have some kind of explanatory relationship with the `Sales Rank`.
+Let's examine the same for `Review Score`.
 
+<div>
+    <a href="https://plot.ly/~PernilleLindvang/17/?share_key=WJGuPasc4Sq789Nijg5H89" target="_blank" title="Plot 17" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/17.png?share_key=WJGuPasc4Sq789Nijg5H89" alt="Plot 17" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:17" sharekey-plotly="WJGuPasc4Sq789Nijg5H89" src="https://plot.ly/embed.js" async></script>
+</div>
+
+Here, we see a very different pattern for the visual features and the response variable. Again, the plot is very affected by `Review Score` being a bit categorical in nature. 
 
 ## Analysis
 
