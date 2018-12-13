@@ -50,8 +50,8 @@ The visual semantically meaningful features we have chosen to work with in this 
 As the first exploratory plot we will examine the distribution of our response variable, `Sales Rank`.
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/1/?share_key=regkrHjAbQB1byAT7K6pl1" target="_blank" title="Plot 1" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/1.png?share_key=regkrHjAbQB1byAT7K6pl1" alt="Plot 1" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:1" sharekey-plotly="regkrHjAbQB1byAT7K6pl1" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/11/?share_key=t5mSfh6yUvpN0kd2jhHQTE" target="_blank" title="Plot 11" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/11.png?share_key=t5mSfh6yUvpN0kd2jhHQTE" alt="Plot 11" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:11" sharekey-plotly="t5mSfh6yUvpN0kd2jhHQTE" src="https://plot.ly/embed.js" async></script>
 </div>
 
 
@@ -70,9 +70,12 @@ As seen in the above scatterplot the `Review Score` is not a categorical variabl
 Furthermore, since we wish to explore the ability of predicting the `Sales Rank` or the `Review Score` based on visual features, `Entropy`, `Brightness`, and `Keypoints` are visualised against the two proposed response variables.
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/7/?share_key=X1Wudl3wYnsRY5wjCwGuty" target="_blank" title="Plot 7" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/7.png?share_key=X1Wudl3wYnsRY5wjCwGuty" alt="Plot 7" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:7" sharekey-plotly="X1Wudl3wYnsRY5wjCwGuty" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/9/?share_key=M1ua1WqFPxRxKrRNfNlSgu" target="_blank" title="Plot 9" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/9.png?share_key=M1ua1WqFPxRxKrRNfNlSgu" alt="Plot 9" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:9" sharekey-plotly="M1ua1WqFPxRxKrRNfNlSgu" src="https://plot.ly/embed.js" async></script>
 </div>
+
+
+From this we actually see that some of these visual features have some kind of explanatory relationship with the `Sales Rank`.
 
 
 ## Analysis

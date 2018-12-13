@@ -39,7 +39,8 @@ fig.append_trace(Entropy, 1, 1)
 fig.append_trace(Brightness, 1, 2)
 fig.append_trace(Keypoints, 1, 3)
 
-fig['layout'].update(height=300, width=800, title='Correlation between Entropy, Brightness, Keypoints and Sales Rank')
+fig['layout'].update(height=400, width=800, title='Correlation between Entropy, Brightness, Keypoints and Sales Rank')
+
 
 
 app.layout = html.Div([
