@@ -75,8 +75,8 @@ As seen in the above plot, our response variable follow a power-log distribution
 In the plot below we examine the correlation between the response variable, `Sales Rank` and the continuous variable, `Review Score`.
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/13/?share_key=8Slp6SgnHXutG1W6uRYTx3" target="_blank" title="Plot 13" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/13.png?share_key=8Slp6SgnHXutG1W6uRYTx3" alt="Plot 13" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:13" sharekey-plotly="8Slp6SgnHXutG1W6uRYTx3" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/21/?share_key=FP97Hq2PBdXv7oo9009m5H" target="_blank" title="Plot 21" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/21.png?share_key=FP97Hq2PBdXv7oo9009m5H" alt="Plot 21" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:21" sharekey-plotly="FP97Hq2PBdXv7oo9009m5H" src="https://plot.ly/embed.js" async></script>
 </div>
 
 
@@ -111,55 +111,3 @@ This one is chosen due to better performance compared to the other libraries wor
 ## Conclusion
 
 In this project we have seen that ...
-
-
-
-NOTES:
-
-## Challenges
-We could approach the problem in two ways, each with its unique set of challenges.
-1. Using Interpretable Features
-    - Fitting a simple model would let us interpret the results (e.g. look at the weights of each feature given by linear regression), but such a simple model probably would not get a good enough accuracy to make a good analysis.
-    - If we make a complex model (e.g. a neural network or an   ensemble of trees) from these features, we would have a well-fitting model but then we would again get uninterpretable combinations of the features—even though the initial features were meaningful.
-
-2. Using Complex Non-Interpretable Features
-    - We could get a well-fitting model perhaps even with simpler models, but we would be unable to interpret which features affect the sales and reviews and how they affect them.
-    - Methods such as K-means clustering or PCA could help us visually identify certain features of books, but this might be a subjective analysis. Even if there are clearly observable features, they may not translate to an effect on sales/reviews.
-
-## Method
-To tackle the challenges above, we bring together the best of both worlds: start with interpretable features, fit a complex model, use state-of-the-art research to interpret the model.
-
-In more specific steps:
-1. Scrape the missing parts of the dataset from Amazon, download cover images for each book,
-2. Decide on a number of semantically meaningful features and extract these features from the covers,
-3. Build an ensemble of trees such as a Random Forest that can model the data well using these features,
-4. Use [SHAP](https://github.com/slundberg/shap) to analyze the model and learn which features are the most important and how they affect the output of the model,
-5. Use the analysis results to draw conclusions about the importance of cover aesthetics.
-
-## Internal Milestones
-Week 1 (Nov 26):
-- Further work on building meaningful visual features
-- Further work on scraping more data from Amazon
-- Build an initial Random Forest model
-
-Week 2 (Dec 3):
-- Improve and expand the Random Forest model
-- Start examining the influence of the visual features
-
-Week 3 (Dec 10):
-- Finish the modelling and start building a data story
-- Draw conclusion on the visual features and compare with already published papers on book covers
-
-**Report Deadline:** December 16
-
-Until the presentation:
-- Prepare the project poster
-- Prepare for the presentation
-
-**Presentation Deadline:** Jan 21
-
-## The Repository
-1. `Data Collection.ipynb` starts from the original dataset and creates `scraped.csv` which holds the scraped features. It also downloads all the cover images to a folder. Finally, it gives an initial exploration of the newly scraped data.
-2. `Exploratory Analysis.ipynb` uses the outputs of the last step to complete the dataset. It extracts the visual features of each image by using the methods in `feature_extraction.py`. As its name suggests, this notebook continues to do the exploratory analysis on the whole dataset, doing the descriptive statistics tasks, investigating distributions, etc. It ends with a plan for the upcoming steps of the project.
-
-## Contributions of Group Members

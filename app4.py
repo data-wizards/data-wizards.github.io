@@ -17,6 +17,8 @@ df = pd.read_csv(
 x = df['Review Score']
 X = x[x>0.5]
 
+k
+
 Entropy = go.Scatter(
     x=df['Entropy'],
     y=X,

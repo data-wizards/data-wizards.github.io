@@ -3,6 +3,10 @@ import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
 import plotly.graph_objs as go
+import plotly.plotly as py
+
+from numpy import arange,array,ones
+from scipy import stats
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -13,7 +17,14 @@ df = pd.read_csv(
 
 x = df['Review Score']
 X = x[x>0.5]
-n
+
+y = df['Sales Rank']
+Y = y[x>0.5]
+
+# Generated linear fit
+slope, intercept, r_value, p_value, std_err = stats.linregress(X,Y)
+line = slope*X+intercept
+
 
 app.layout = html.Div([
     dcc.Graph(
@@ -22,7 +33,7 @@ app.layout = html.Div([
             'data': [
                 go.Scatter(
                     x=X,
-                    y=df['Sales Rank'],
+                    y=Y,
                     text=df['Title'],
                     mode='markers',
                     opacity=0.7,
@@ -31,7 +42,31 @@ app.layout = html.Div([
                         'line': {'width': 0.5, 'color': 'white'}
                     },
                     #name=i
-                ) #for i in df.Author.unique()
+                ),
+                go.Scatter(
+                    x=X,
+                    y=line,
+                    text='$R^2 = 0.7551,\\y = 4184277.8 + -745938.9x$',
+                    mode='lines',
+                    opacity=0.7,
+                    marker={
+                        'size': 15,
+                        'line': {'width': 0.5, 'color': 'white'}
+                    },
+                    #name=i
+                ),
+                go.Annotation(
+                    x=4.5,
+                    y=14000000,
+                    text='$R^2 = 0.7551,\\y = 4184277.8 + -745938.9x$',
+                    mode='lines',
+                    opacity=0.7,
+                    marker={
+                        'size': 15,
+                        'line': {'width': 0.5, 'color': 'white'}
+                    },
+                    #name=i
+                )
             ],
             'layout': go.Layout(
                 xaxis={'title': 'Review Score'},
