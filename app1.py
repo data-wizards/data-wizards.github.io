@@ -21,6 +21,9 @@ X = x[x>0.5]
 y = df['Sales Rank']
 Y = y[x>0.5]
 
+t = df['Title']
+T = t[x>0.5]
+
 # Generated linear fit
 slope, intercept, r_value, p_value, std_err = stats.linregress(X,Y)
 line = slope*X+intercept
@@ -34,7 +37,7 @@ app.layout = html.Div([
                 go.Scatter(
                     x=X,
                     y=Y,
-                    text=df['Title'],
+                    text=T,
                     mode='markers',
                     opacity=0.7,
                     marker={

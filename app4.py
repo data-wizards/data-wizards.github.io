@@ -74,7 +74,7 @@ trace3 = go.Scatter(
     mode='lines'
 )
 
-
+k
 fig = tools.make_subplots(rows=1, cols=3, specs=[[{},{},{}]],
                           shared_xaxes=False, shared_yaxes=True,
                           vertical_spacing=0.001)

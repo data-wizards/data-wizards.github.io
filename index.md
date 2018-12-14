@@ -5,15 +5,13 @@ title: Judging Covers
 December is always a busy month. Are you late for Christmas presents again this year? Do you have a lot of young nephew and nieces, and do not know how to choose from the million of books found online?
 
 
-PICTURES ON TWO BOOKCOVERS
+PICTURES ON TWO BOOKCOVERS ( Many and Pandy visit the Zoo 9024, the lord of the hat 6752)
 
 
 So, based on the looks of these two book covers, which one would you buy? Which one would you think had the highest review score? Take your time to think....
 
 
- Buckle up and get ready to go through the data story which will uncover the scientific answer to the questions above, and will make sure you are on the same _page_ as the younger ones for the holiday seasons in the years to come.
-
-
+Buckle up and get ready to go through the data story which will uncover the scientific answer to the questions above, and will make sure you are on the same _page_ as the younger ones for the holiday seasons in the years to come.
 
 
 ## Introduction
@@ -59,13 +57,47 @@ The visual semantically meaningful features we have chosen to work with in this 
 <iframe src="https://github.com/data-wizards/data-wizards.github.io/blob/master/dendogram.html" width="100%" height="400px"></iframe>
 
 
+
+Lets go back and look at our initial proposed book covers. The above mentioned visual features are all resulting in the following measures for the two books:
+
+
+| ID           | Mandy and Pandy visit the Zoo | The Lord of the hat |
+| ------------ | ----------------------------- | ------------------- |
+| Title        | 9024                          | 6752                |
+| ------------ | ----------------------------- | ------------------- |
+| Brightness   | 0.6929143                     | 0.57373714          |
+| ------------ | ----------------------------- | ------------------- |
+| Colorfulness | 56.011766869752854            | 81.67765304315728   |
+| ------------ | ----------------------------- | ------------------- |
+| Entropy      | 6.860396400000001             | 6.765961            |
+| ------------ | ----------------------------- | ------------------- |
+| UniqueColors | 64144                         | 52475               |
+| ------------ | ----------------------------- | ------------------- |
+| Keypoints    | 0.01810313901345292           | 0.0268821752265861  |
+| ------------ | ----------------------------- | ------------------- |
+| Color1R      | 243                           | 199                 |
+| ------------ | ----------------------------- | ------------------- |
+| Color1G      | 236                           | 208                 |
+| ------------ | ----------------------------- | ------------------- |
+| Color1B      | 183                           | 236                 |
+| ------------ | ----------------------------- | ------------------- |
+| Color2R      | 125                           | 82                  |
+| ------------ | ----------------------------- | ------------------- |
+| Color2G      | 109                           | 42                  |
+| ------------ | ----------------------------- | ------------------- |
+| Color2B      | 160                           | 129                 |
+
+
+Before going directly to the interesting results, let's first get a closer look of data.
+
+
 ## Exploratory Analysis
 
 As the first exploratory plot we will examine the distribution of our initial response variable, `Sales Rank`, and also of the other possible response variable, `Review Score`.
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/15/?share_key=QMvfYzETSaLhbU5wCN9LPB" target="_blank" title="Plot 15" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/15.png?share_key=QMvfYzETSaLhbU5wCN9LPB" alt="Plot 15" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:15" sharekey-plotly="QMvfYzETSaLhbU5wCN9LPB" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/27/?share_key=2F33uwz7SnUQan0gwmrWYZ" target="_blank" title="Plot 27" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/27.png?share_key=2F33uwz7SnUQan0gwmrWYZ" alt="Plot 27" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:27" sharekey-plotly="2F33uwz7SnUQan0gwmrWYZ" src="https://plot.ly/embed.js" async></script>
 </div>
 
 
@@ -102,10 +134,12 @@ Let's examine the same for `Review Score`.
 
 Here, we see a very different pattern for the visual features and the response variable. Again, the plot is very affected by `Review Score` being a bit categorical in nature.
 
+Based on the two plots above it seems like the visual features alone might be better at predicting the `Sales Rank`than the `Review Score` since there were at least some kind of correlation.
+
 ## Analysis
 
-In this section we will present to you the results of the boosted ensemble of tree model from *CatBoost*.
-This one is chosen due to better performance compared to the other libraries working with *SHAP*.
+In this section we will present to you the results of the boosted ensemble of trees from *CatBoost* together with the SciKit learn Random Forest model. The CatBoost is chosen due to better performance compared to the other libraries working with *SHAP*.
+
 
 
 ## Conclusion
