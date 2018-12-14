@@ -86,8 +86,8 @@ As seen in the above scatterplot the `Review Score` is not a categorical variabl
 Furthermore, since we wish to explore the ability of predicting the `Sales Rank` or the `Review Score` based on visual features, `Entropy`, `Brightness`, and `Keypoints` are visualised against the two proposed response variables.
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/9/?share_key=M1ua1WqFPxRxKrRNfNlSgu" target="_blank" title="Plot 9" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/9.png?share_key=M1ua1WqFPxRxKrRNfNlSgu" alt="Plot 9" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:9" sharekey-plotly="M1ua1WqFPxRxKrRNfNlSgu" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/23/?share_key=K1Xfpn9oSEHqQQsvlrhDzW" target="_blank" title="Plot 23" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/23.png?share_key=K1Xfpn9oSEHqQQsvlrhDzW" alt="Plot 23" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:23" sharekey-plotly="K1Xfpn9oSEHqQQsvlrhDzW" src="https://plot.ly/embed.js" async></script>
 </div>
 
 
@@ -95,8 +95,8 @@ From this we actually see that some of these visual features have some kind of e
 Let's examine the same for `Review Score`.
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/19/?share_key=uNWfeF3g0yH5ylV9kCgxLS" target="_blank" title="Plot 19" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/19.png?share_key=uNWfeF3g0yH5ylV9kCgxLS" alt="Plot 19" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:19" sharekey-plotly="uNWfeF3g0yH5ylV9kCgxLS" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/25/?share_key=N8cmRiV22Bf1rLlnT6KJjY" target="_blank" title="Plot 25" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/25.png?share_key=N8cmRiV22Bf1rLlnT6KJjY" alt="Plot 25" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:25" sharekey-plotly="N8cmRiV22Bf1rLlnT6KJjY" src="https://plot.ly/embed.js" async></script>
 </div>
 
 
