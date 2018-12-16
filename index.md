@@ -81,19 +81,19 @@ Before seeing what the features look like for our two book cover examples, let's
 
 Now, let's investigate the values for our two book cover examples:
 
-Title | Those Darn Squirrels Fly South |  Bonyo Bonyo
-:----:|:-------------------------:|:-------------------------:
-Cover |![](https://i.imgur.com/bMU8bHa.jpg) | ![](https://i.imgur.com/nbMJsPu.jpg)
+| Title | Those Darn Squirrels Fly South |  Bonyo Bonyo|
+|:----:|:-------------------------:|:-------------------------:|
+| Cover |![](https://i.imgur.com/bMU8bHa.jpg) | ![](https://i.imgur.com/nbMJsPu.jpg) |
 | Brightness   | 0.83                           | 0.52                |
 | Colorfulness | 59.8                           | 60.3                |
 | Entropy      | 6.8                            | 5.8                 |
 | UniqueColors | 87982                          | 34160               |
 | Keypoints    | 0.04                           | 0.01                |
-Most Dominant Color | ![](https://i.imgur.com/FeIJs6d.png) |![](https://i.imgur.com/oSHfZoW.png)
+| Most Dominant Color | ![](https://i.imgur.com/FeIJs6d.png) |![](https://i.imgur.com/oSHfZoW.png) |
 | Color1R      | 232                            | 229                 |
 | Color1G      | 246                            | 198                 |
 | Color1B      | 241                            | 146                 |
-Second Dominant Color | ![](https://i.imgur.com/AKaj5BD.jpg) | ![](https://i.imgur.com/gYk6xTe.png)
+| Second Dominant Color | ![](https://i.imgur.com/AKaj5BD.jpg) | ![](https://i.imgur.com/gYk6xTe.png) |
 | Color2R      | 208                            | 237                 |
 | Color2G      | 223                            | 212                 |
 | Color2B      | 132                            | 175                 |
