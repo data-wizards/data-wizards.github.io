@@ -61,7 +61,7 @@ app.layout = html.Div([
                 go.Annotation(
                     x=4.5,
                     y=14000000,
-                    text='$R^2 = 0.7551,\\y = 4184277.8 + -745938.9x$',
+                    text='$R^2 = 0.4251,\\y = 4184277.8 + -745938.9x$',
                     mode='lines',
                     opacity=0.7,
                     marker={
