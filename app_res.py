@@ -11,15 +11,21 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 df = pd.read_csv(
     'https://raw.githubusercontent.com/dogatekin/Project/master/subsetDF.csv')
 
-x = df['Review Score']
-X = x[x>0.5]
 
 y = df['Sales Rank']
-Y = y[x>0.5]
+Y = y[y<3000000]
+
+x = df['Review Score']
+X = y[y<3000000]
 
 t = df['Title']
-T = t[x>0.5]
+T = t[y<3000000]
 
+b = df['Brightness']
+B = b[y<3000000]
+
+u = df['UniqueColors']
+U = u[y<3000000]
 
 app.layout = html.Div([
     dcc.Graph(
@@ -27,15 +33,15 @@ app.layout = html.Div([
         figure={
             'data': [
                 go.Scatter(
-                    x=df['Brightness'],
-                    y=df['UniqueColors'],
-                    text=df['Title'],
+                    x=B,
+                    y=U,
+                    text=T,
                     mode='markers',
                     opacity=0.7,
                     marker = dict(
                         size = 15,
-                        color=df['Sales Rank'],
-                        colorscale='Hot', #earth
+                        color=X,
+                        colorscale='Earth', #earth
                         showscale=True,
                     )
                 )
