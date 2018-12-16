@@ -99,8 +99,8 @@ Before going directly to the interesting results, let's first get a closer look 
 As the first exploratory plot we will examine the distribution of our initial response variable, `Sales Rank`, and also of the other possible response variable, `Review Score`.
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/27/?share_key=2F33uwz7SnUQan0gwmrWYZ" target="_blank" title="Plot 27" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/27.png?share_key=2F33uwz7SnUQan0gwmrWYZ" alt="Plot 27" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:27" sharekey-plotly="2F33uwz7SnUQan0gwmrWYZ" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/29/?share_key=iZi3QuQyGwYe8FtqgDS4Y1" target="_blank" title="Plot 29" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/29.png?share_key=iZi3QuQyGwYe8FtqgDS4Y1" alt="Plot 29" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:29" sharekey-plotly="iZi3QuQyGwYe8FtqgDS4Y1" src="https://plot.ly/embed.js" async></script>
 </div>
 
 
@@ -110,8 +110,8 @@ As seen in the above plot, our response variable follow a power-log distribution
 In the plot below we examine the correlation between the response variable, `Sales Rank` and the continuous variable, `Review Score`.
 
 <div>
-    <a href="https://plot.ly/~PernilleLindvang/21/?share_key=FP97Hq2PBdXv7oo9009m5H" target="_blank" title="Plot 21" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/21.png?share_key=FP97Hq2PBdXv7oo9009m5H" alt="Plot 21" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="PernilleLindvang:21" sharekey-plotly="FP97Hq2PBdXv7oo9009m5H" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~PernilleLindvang/27/?share_key=2F33uwz7SnUQan0gwmrWYZ" target="_blank" title="Plot 27" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/27.png?share_key=2F33uwz7SnUQan0gwmrWYZ" alt="Plot 27" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="PernilleLindvang:27" sharekey-plotly="2F33uwz7SnUQan0gwmrWYZ" src="https://plot.ly/embed.js" async></script>
 </div>
 
 
