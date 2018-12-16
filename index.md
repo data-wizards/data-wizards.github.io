@@ -255,6 +255,7 @@ In addition, the majority of the books in the children's books category are like
 
 Other improve points include dividing the books into even more smaller subcategories, and either train a model on each of these categories or incorporate the subcategories as features in a single model.  
 
+One drawback we could not take into account is the change of book covers over time. This is of course a limitation to our model. 
 
 <div id="conclusion" />
 
