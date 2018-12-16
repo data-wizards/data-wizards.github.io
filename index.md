@@ -7,6 +7,9 @@ December is always a busy month. Are you late for Christmas presents again this 
 
 PICTURES ON TWO BOOKCOVERS ( Many and Pandy visit the Zoo 9024, the lord of the hat 6752)
 
+The Lord of the Hat        |  Mandy and Pandy Visit the Zoo
+:-------------------------:|:-------------------------:
+![](https://images-na.ssl-images-amazon.com/images/I/51HRLcFteBL._SX329_BO1,204,203,200_.jpg)  |  ![](https://images-na.ssl-images-amazon.com/images/I/51yBr2Paz0L._SY444_BO1,204,203,200_.jpg)
 
 So, based on the looks of these two book covers, which one would you buy? Which one would you think had the highest review score? Take your time to think....
 
