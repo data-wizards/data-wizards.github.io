@@ -98,15 +98,12 @@ Now, let's investigate the values for our two book cover examples:
 
 According to the feature `UniqueColors`, *Those Darn Squirrels Fly Down South* has more than twice as many different colors as *Bonyo Bonyo*. The sharp mind probably already noted this the first time when the two covers were presented in the previous section! Also, the colors extracted as the most and the second-dominant ones seem to fit!   
 
-
-
 Before going directly to the interesting results, let's first get a closer look at the data.
 
 <div id='exploration'/>
 
 ## Exploration
 As the first exploratory plot we will examine the distribution of our initial response variable, `Sales Rank`, and also of the other possible response variable, `Review Score`.
-
 
 <div>
     <a href="https://plot.ly/~PernilleLindvang/29/?share_key=iZi3QuQyGwYe8FtqgDS4Y1" target="_blank" title="Plot 29" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/29.png?share_key=iZi3QuQyGwYe8FtqgDS4Y1" alt="Plot 29" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
@@ -122,10 +119,9 @@ In the plot below we examine the correlation between the response variable, `Sal
     <script data-plotly="PernilleLindvang:27" sharekey-plotly="2F33uwz7SnUQan0gwmrWYZ" src="https://plot.ly/embed.js" async></script>
 </div>
 
-
 From this plot you can see each book with the `Title` and the corresponding `Review Score` and `Score Rank` when hovering over the datapoints. We can also see a correlation that we would expect to see, which is a positive relationship between sales and review scores. Of course there are popular books that are not well-liked and there are books with excellent reviews that aren't popular at all, but the general trend seems to show books with better reviews get more sales.
 
-As seen in the above scatterplot, `Review Score` is not a categorical variable, but it does to an extent act like one. As seen from the above plot there are very few reviews between the the integers in the 1-5 scale. This is because Amazon only allows users to give an integer score, so books with only one review or a few reviews with the same score end up on integer average review scores.
+As seen in the above scatterplot, `Review Score` is not a categorical variable, but it does to an extent act like one. As seen from the above plot there are very few reviews between the integers in the 1-5 scale. This is because Amazon only allows users to give an integer score, so books with only one review or a few reviews with the same score end up on integer average review scores.
 
 Furthermore, since we wish to explore the ability of predicting the `Sales Rank` or the `Review Score` based on visual features, a few of the features, `Entropy`, `Brightness`, and `Keypoints`, are visualised against the two proposed response variables.
 
@@ -134,8 +130,7 @@ Furthermore, since we wish to explore the ability of predicting the `Sales Rank`
     <script data-plotly="PernilleLindvang:23" sharekey-plotly="K1Xfpn9oSEHqQQsvlrhDzW" src="https://plot.ly/embed.js" async></script>
 </div>
 
-
-From this we actually see that some of these visual features have some kind of explanatory relationship with the `Sales Rank`. More specifically we see for `Entropy` that higher values of entropy score tends to give higher sales rank (so worse sales). For `Brightness` it seems brighter covers lead to more sales (lower sales rank). Lastly, for keypoints, which is another way of calculating a measure of complexity, the more complex the lower the sales rank (more sales). An interpretation of these plots would be that brighter covers catch the attention of the potential buyer and increase the sales, and adding complexity (keypoints) might also help if it is not just making the cover random (entropy).
+From this we actually see that some of these visual features have some correlation with the `Sales Rank`. More specifically we see for `Entropy` that higher values of entropy score tends to give higher sales rank (so worse sales). For `Brightness` it seems brighter covers lead to more sales (lower sales rank). Lastly, for keypoints, which is another way of calculating a measure of complexity, the more complex the lower the sales rank (more sales). An interpretation of these plots would be that brighter covers catch the attention of the potential buyer and increase the sales, and adding complexity (keypoints) might also help if it is not just making the cover random (entropy).
 
 Let's examine the same for `Review Score`:
 
@@ -155,27 +150,26 @@ Based on the above exporatory plots we have chosen to focus on the influence of 
 
 To unlock the link between the visual covers and the unknown `Sales Rank` we will build an ensemble decision tree model: _The Random Forest_. 
 
+[The Random Forest](https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd) is an ensemble of several decision trees. The randomness occurs in the random subsampling of data called _bagging_. In simple words, the Random Forest will build multiple desicison trees, average the result from all of them in order to reach a more stable and reliable result.
 
-[The Random Forest](https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd) is an ensemble of several decision trees, and therefore the name actually makes sense. The randomness occurs in the random subsampling of data called _bagging_. In simple words, the Random Forest will build multiple desicison trees, average the result from all of them in order to reach a more stable and reliable result.
+Our aim with this analysis is more than just predicting the `Sales Rank` with a certain accuracy: the aim is also to understand _how_ the model actually takes in the visual features and how it goes from these inputs to the output. In order to analyze and visualise this, we have used state-of-the-art research, namely the [SHapley Additive exPlanations (SHAP)](http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf) approach.
 
-Our aim of this analysis is more than just predicting the `Sales Rank` with a certain accuracy: the aim is rather to understand _how_ the model actually takes in the visual features and how it comes from these inputs to the output. In order to analyze and visualise this, we have used state-of-the-art research, namely the [SHapley Additive exPlanations (SHAP)](http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf) approach.
-
-Below, the bar chart, based on the SHAP value, shows which visual features have the greatest weight when predicting the `Sales Rank`. We see that `Brightness` has almost twice as much influence on the output as the number of unique colors, `Unique Colors`. 
+Below is a bar chart, based on the SHAP value, that shows which visual features have the greatest importance when predicting the `Sales Rank`. We see that `Brightness` has almost twice as much influence on the output as the number of unique colors, `Unique Colors`. 
 
 ![](https://i.imgur.com/0XZiX1U.png)
 
-Further to this rather simple barchart, we can visualise the visual feature importance with the plot below. Here we get more insights into _which direction_ the visual features are affecting the output of the `Sales Rank`. The red color resembles high values, and the blue color, low values. The impact can be seen from the y-axis. 
+We can visualise the visual feature importance with the plot below. Here we get more insights into _which direction_ the visual features are affecting the prediction of the `Sales Rank`. The red color represents high values, and the blue color low values. The impact can be seen from the y-axis. 
+
 As an example we can focus on again the top 3 features, `Brightness`,`UniqueColors`, and, `Entropy`.
 
 ![](https://i.imgur.com/ZNDJ2qZ.png)
 
-
 1. `Brightness`
-Since the output of the model is a rank, the optimal is as low a value as possible. From the above plot we see that the higher values of Brightness will result in a lower value of the sales rank. 
+Since the output of the model is a rank, the optimal is as low a value as possible. From the above plot we see that the higher values of brightness will result in a lower value of the sales rank. 
 2. `UniqueColors`
-Subsequently, we see that the more unique colors the cover posseses, the lower than rank, and thereby the better the score.
-4. `Entropy`
-In contrast to the Brightness and the Unique Colors, higher values of Unique Colors will greaten the rank of the sale, and therefore lower values of Entropy is preferable. 
+We see that the more unique colors the cover has, the lower than rank, and thereby the better the score.
+3. `Entropy`
+In contrast to the brightness and the unique colors, higher values of entropy will increase the rank of the sale, and therefore lower values of Entropy is preferable. 
 
 So, with this introduction to the model and the results, it is now time to go back to our initial example: which of the initial proposed covers would have a higher `Sales Rank`?
 
@@ -185,19 +179,19 @@ Those Darn Squirrels Fly South |  Bonyo Bonyo
 :-------------------------:|:-------------------------:
 ![](https://i.imgur.com/bMU8bHa.jpg) | ![](https://i.imgur.com/nbMJsPu.jpg) 
 
-Looking at the two bookcovers above it seems like "Those Darn Squirrels Fly Down South" has significantly brighter book cover, together with more unique colors, and the entropy (randomness) seems to be higher as well. 
+Looking at the two bookcovers above it seems like "Those Darn Squirrels Fly Down South" has a significantly brighter book cover, together with more unique colors, and the entropy (randomness) seems to be higher as well. 
 
 Further up in this datastory all the visual feature values can be found for these two book covers.
 For the sake of simplicity we will focus on the top three features in the light of importance for the `Sales Rank`. 
 
 | Title        | Those darn squirrels fly south | Bonyo Bonyo         |
-| ------------ | ------------------------------ | -------------------  |
+| ------------ | ------------------------------ | ------------------- |
 | Brightness   | 0.83                           | 0.52                |
 | UniqueColors | 87982                          | 34160               |
 | Entropy      | 6.8                            | 5.8                 |
 
 
-Just as it seemed like by looking at the covers, it is seen how "Those Darn Squirrels Fly Down South" has a higher value than "Bonyo Bonyo" for the Brughtness feature. Subsequently, it is seen how the number of unique values are also higher, as well as the Entropy. 
+Just as it seemed like by looking at the covers, it is seen how "Those Darn Squirrels Fly Down South" has a higher value than "Bonyo Bonyo" for the brightness feature. Subsequently, it is seen how the number of unique values are also higher, as well as the Entropy. 
 
 So based on our model, "Those Darn Squirrels Fly Down South" should be having a higher `Sales Rank` compared to "Bonyo Bonyo". Looking into the ranking for the two books give the following result:
 
@@ -206,9 +200,7 @@ So based on our model, "Those Darn Squirrels Fly Down South" should be having a 
 | Sales Rank   | 10244                          | 1786788                |
 
 
-Wauw... What a relief and what a coincidence! Just almost a factor 200 better ranking than "Bonyo Bonyo". This example is surely not cherry picked.. So, is the model just perfect, or?
-
-
+Wow... What a relief and what a coincidence! Just almost a factor 200 better ranking than "Bonyo Bonyo". This example is surely not cherry picked... So, is the model just perfect, or?
 
 <div id="drawbacks" />
 
@@ -237,7 +229,7 @@ From these features we see that we have lower brightness, and higher entropy tha
 
 And what would we think about the `Sales Rank` based on these cover features? Two of the features are significantly worse than the ones before, whereas one is better. Maybe it would be in between the ranks of 10.000 and 180.000? Let's examine...
 
-| Title        | Harry Potter and the Philosoper's Stone |
+| Title        | Harry Potter and the Sorcerer's Stone |
 | ------------ | ------------------------------ | 
 | Sales Rank   | 188                         | 
 
@@ -253,9 +245,9 @@ In order to account for the changes in sales and review within the children's bo
 
 In addition, the majority of the books in the children's books category are likely not appropriate for the same age group, and this could also distort the underlying distribution. If this information was available about each book and was used as a feature in our model, the model performance could potentially be further enhanced.
 
-Other improve points include dividing the books into even more smaller subcategories, and either train a model on each of these categories or incorporate the subcategories as features in a single model.  
+One other drawback we could not account for is the change of book covers over time. This is of course a limitation to our model, as it relies on the cover found on the book's Amazon listing at one time.
 
-One drawback we could not take into account is the change of book covers over time. This is of course a limitation to our model. 
+Other improve points include dividing the books into even more smaller subcategories, and either train a model on each of these categories or incorporate the subcategories as features in a single model.  
 
 <div id="conclusion" />
 
@@ -263,4 +255,4 @@ One drawback we could not take into account is the change of book covers over ti
 
 In this project we have seen that we can extract important visual information about book covers even though they only to a certain degree could work as predictors of the `Sales Rank`. Specifically, we saw that popularity of books would be a drawback of the model. 
 
-In general, good practices among book covers were found to be bright book covers, a high amount of unique colors, together with a low amount of randomness. Of the less important features we saw that more complexity would lead to a marginally lower ranking, and the same goes for the red RGB value of the most dominant color in the cover. 
+In general, good practices among book covers were found to be bright book covers, a high amount of unique colors, together with a low amount of randomness. Of the less important features we saw that more complexity (but not random) would lead to a marginally lower ranking, and the same goes for the red RGB value of the most dominant color in the cover. 
