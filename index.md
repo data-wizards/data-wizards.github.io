@@ -25,13 +25,11 @@ Also, check out [the code for our detailed analysis](https://github.com/dogateki
 1. [The Data](#data)
     - [Data Collection](#collection)
     - [Feature Extraction](#feature-extraction)
-    - [Data Exploration](#exploration)
-3. [Judging Covers](#judging)
-    - [Sales Rank](#sales-rank)
-    - [Review Score](#review-score)
-5. [Drawbacks](#drawbacks)
+    - [Exploration](#exploration)
+3. [Time to Judge](#judging)
+5. [Our Model Is Flawed](#drawbacks)
     - [Tricked by Harry Potter](#popularity)
-    - [Some other drawback](#drawback2)
+    - [Some More Drawbacks](#drawback2)
 7. [Conclusion](#conclusion)
 
 <div id='data'/>
@@ -153,9 +151,9 @@ Based on the above exporatory plots we have chosen to focus on the influence of 
 
 <div id="judging" />
 
-# Time to Judge
+# Time to judge
 
-To unlock the link between the visual covers and the unknown `Sales Rank` and `Review Score` we will build an ensemble decision tree model: _The Random Forest_. 
+To unlock the link between the visual covers and the unknown `Sales Rank` we will build an ensemble decision tree model: _The Random Forest_. 
 
 
 [The Random Forest](https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd) is an ensemble of several decision trees, and therefore the name actually makes sense. The randomness occurs in the random subsampling of data called _bagging_. In simple words, the Random Forest will build multiple desicison trees, average the result from all of them in order to reach a more stable and reliable result.
@@ -179,7 +177,6 @@ Subsequently, we see that the more unique colors the cover posseses, the lower t
 4. `Entropy`
 In contrast to the Brightness and the Unique Colors, higher values of Unique Colors will greaten the rank of the sale, and therefore lower values of Entropy is preferable. 
 
-## Comparison 
 So, with this introduction to the model and the results, it is now time to go back to our initial example: which of the initial proposed covers would have a higher `Sales Rank`?
 
 Let's refresh our memory with the two covers:
@@ -216,6 +213,10 @@ Wauw... What a relief and what a coincidence! Just almost a factor 200 better ra
 <div id="drawbacks" />
 
 # Our Model Is Flawed
+As you probably already have guessed, our model is not perfect. In the following, we will showcase an example where the model clearly does not work. Also, we discuss general drawbacks of the model.
+
+<div id='popularity'/>
+
 ## Tricked by Harry Potter
 
 Since this model only takes in the visual covers, it of course has flaws when it comes to predicting the rank of the sales. Let us take a well-known book as example. We all know the great tales of Harry Potter. One of the books we have in our data set is "Harry Potter and the Sorcerer's Stone", which has the following book cover. 
@@ -242,6 +243,8 @@ And what would we think about the `Sales Rank` based on these cover features? Tw
 
 
 With a sales ranking of only 188 it is clear that our model has some flaws in the way that I does not take any other information about the books into account. 
+
+<div id='drawback2'/>
 
 ## Some More Drawbacks
 As we saw in the previous sections, our model and potentially the extracted features clearly do not represent popular books well. One could argue that the more popular a book is, the less the aesthetics of its book cover matter. This observations is potentially a part of a broader problem already addressed earlier -- i.e. the Simpson's paradox! 
