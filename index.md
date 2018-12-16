@@ -1,109 +1,116 @@
 ---
+tags: EPFL, ADA, Project
 title: Judging Covers
 ---
 
-December is always a busy month. Are you late for Christmas presents again this year? Do you have a lot of young nephew and nieces, and do not know how to choose from the million of books found online?
+> Don't judge a book by its cover. -Someone
+
+Did you buy your loved ones presents for this year's upcoming holidays season yet? Do you have younger cousins, nieces, nephews or children of your own? Are you planning on surprising the younger ones with a book or two? Imagine you are at a bookstore looking for the right gift, trying to decide between two books you saw in the children's section. Let's say these are the two books (taken from Amazon's Children's Books category):
 
 
-PICTURES ON TWO BOOKCOVERS ( Many and Pandy visit the Zoo 9024, the lord of the hat 6752)
-
-The Lord of the Hat        |  Mandy and Pandy Visit the Zoo
+Those Darn Squirrels Fly South |  Bonyo Bonyo
 :-------------------------:|:-------------------------:
-![](https://images-na.ssl-images-amazon.com/images/I/51HRLcFteBL._SX329_BO1,204,203,200_.jpg)  |  ![](https://images-na.ssl-images-amazon.com/images/I/51yBr2Paz0L._SY444_BO1,204,203,200_.jpg)
+![](https://i.imgur.com/bMU8bHa.jpg) | ![](https://i.imgur.com/nbMJsPu.jpg) 
 
-So, based on the looks of these two book covers, which one would you buy? Which one would you think had the highest review score? Take your time to think....
+Your phone is dead, and the employees of the bookstore are nowhere to be found. Without access to any other information, could you still choose which one to buy just by looking at their covers?
 
+You probably had an intuitive answer to that question, but do you really know why you made that decision? This is what we want to investigate here, using the power of data! Based on their cover aesthetics, could we predict a book's Amazon sales rank and review score? After all, these two metrics are good indicators of the popularity of the books; maybe your presents won't be returned this year!
 
-Buckle up and get ready to go through the data story which will uncover the scientific answer to the questions above, and will make sure you are on the same _page_ as the younger ones for the holiday seasons in the years to come.
+Put on your knitted reindeer jumper, buckle up, and get ready as we take you through our data story which will uncover the scientific answer to the question raised above. This year, we will make sure you are on the same _page_ as the younger ones!
 
-
-# Introduction
-We would like to judge books by their covers and tell the story of how the aesthetics of a book's cover can influence its reception by the general public, as measured by its sales and reviews.
-
-Originally, [the suggested project idea](https://dlab.epfl.ch/teaching/fall2018/cs401/projects/) was whether the reviews of a book would be affected by the aesthetics of its cover but we expanded our investigation to also look into book sales. To write a review, buyers must first read the book so their reviews will presumably be more dependent on the content that they went through, rather than the cover. Whereas while buying a book, one has access to less information that can be used to decide whether to make a purchase or not, and we believe the cover is among the most important of those pieces of information. Hence we hypothesize that we will see a more pronounced correlation between the visual features of the cover of a book and its sales, as opposed to its reviews.
-
-In this project we also restricted our problem to the domain of children's books. Different types of covers may work better for different categories of books, and we may see effects in specific categories that are not observable when looking at all of them (and vice versa). We intuitively believe children's books will be the category that is most dependent on the visual features of their covers, so we focus on them for this project. This specification also allows us to account for the changes in sales and reviews between different categories so all our samples now come from the same distribution (more or less).
-
-In this project we have examined the sale rate of the children's book and the relationship to XX, YY, together with semantically meaningful features extracted from the book covers. In this data story we will guide you throw the most interesting of our findings. Let's judge some books by their cover....
-
-## Research questions
-How important are the aesthetics of a children's book cover? Are there good/bad cover practices?
-- How can we find and extract semantically meaningful/interpretable features of book covers?
-- How can we fit a good model that uses these features to predict sales/reviews?
-- How can we analyze which of the features were the most important ones in this model?
-- How can we specify and interpret the effects of changing each of these important features on the output variables?
+Also, check out [the code for our detailed analysis](https://github.com/dogatekin/Project) as well as [this website's source code](https://github.com/data-wizards/data-wizards.github.io)!
 
 
-## Data Processing
-One of the main challenges of this project has been that all data had to be scraped from Amazon directly, since the data which was publicly available was mainly reviews. We start the project with [this publicly available dataset](https://github.com/uchidalab/book-dataset). It has the following columns:
+# Table of Contents
+1. [The Data](#data)
+    - [Feature Extraction](#feature-extraction)
+    - [Data Collection](#collection)
+3. [Judging Covers](#judging)
+    - [Sales Rank](#sales-rank)
+    - [Review Score](#review-score)
+5. [Drawbacks](#drawbacks)
+    - [Popularity](#popularity)
+    - [Some other drawback](#drawback2)
+7. [Conclusion](#conclusion)
 
-| ID | Filename | Image URL | Title | Author | Category ID | Category |
-| -- | -------- | --------- | ----- | ------ | ----------- | -------- |
-| ID | Filename | Image URL | Title | Author | Category ID | Category |
+<div id='data'/>
 
-In order to answer the research questions, we need a dataset that looks more like:
+# The Data
+What do we need to do Data Science? Data, of course!
 
-| ID | Review Score | Sales Rank | Title | Author | Date    | Visual Features |
-| -- | ------------ | ---------- | ----- | ------ | ------- | --------------- |
-| ID | Review Score | Sales Rank | Title | Author | Date    | Visual Features |
+<div id='collection'/>
 
-The `ID` column in the data can be used to access the webpage of each book, by connecting to https://www.amazon.com/dp/book-id. This allows us to scrape any data that is missing directly from Amazon.
+## Data Collection
+We have scraped the cover images of and basic information on around 13000 books listed on Amazon (maybe reference). The book information has the following format: (doga should improve this part)
 
-The columns we are missing are `Review Score`, `Sales Rank`, `Date` and `Visual Features`. We scrape the first three directly from the product pages from Amazon and download the cover images using the URLs in the dataset. We then extract the visual features from each image using [OpenCV](https://opencv.org/) and other methods, completing our dataset.
+| ID | Review Score | Sales Rank | Title | Author | Date    |
+| -- | ------------ | ---------- | ----- | ------ | ------- | 
+| ID | Review Score | Sales Rank | Title | Author | Date    | 
 
-[//]: # The `Title`, `Author` and `Date` columns don't directly relate to the research questions, but can allow some interesting further analysis if time allows. For example, do good/bad cover practices change over time?
+One thing we had to keep in mind while collecting the data was the book catefories. Different types of covers may work better for different categories of books (e.g. dark covers might be good for horror books but not so much for children's books), and we may see effects in specific categories that are not observable when looking at all of them (and vice versa), i.e. the so-called [Simpson's paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox)!
+
+<img src="https://i.imgur.com/kdm6iQY.gif" width=300>
+
+In order to avoid encountering the Simpson's paradox, we separated the books by category such that our samples come from the same distribution (more or less). We do not want to compare apples to oranges, and this specification allows us to account for the changes in sales and reviews within categories. We intuitively believe children's books will be the genre that is most dependent on the visual features of their covers, and therefore our analysis will be done based only on these. 
 
 
-The visual semantically meaningful features we have chosen to work with in this project are highlighted in the below interactive tree plot. By clicking the circles, information about the features will appear.
+<div id='feature-extraction'/>
 
+## Feature Extraction
+So, in order to judge a book based on its cover, we will need data that quantifies the cover characteristics! From each image, we extracted the semantically meaningful visual features as shown in the tree plot below.
 
 <iframe src="https://github.com/data-wizards/data-wizards.github.io/blob/master/dendogram.html" width="100%" height="400px"></iframe>
 
 
+Before seeing what the features look like for our two book cover examples, let's quickly break down what each of the features represents:
 
-Lets go back and look at our initial proposed book covers. The above mentioned visual features are all resulting in the following measures for the two books:
+- Brightness: Measure between x and y of how bright a book cover is. Calculated as 
+- Colorfulness: Measure between a and b of how colorful a book cover is.
+- Entropy: Measure between c and d of how so-called random a book cover is. Computed as
+- UniqueColors: The number of unique colors present in a book cover. Each RGB representation corresponds to a unique color. 
+- Keypoints: Measure between j and k of how complex a book cover
+- Color1R: 
+- Color1G: 
+- Color1B: 
+- Color2R: 
+- Color2G: 
+- Color2B: 
+
 
 
 | Title        | Those darn squirrels fly south | Bonyo Bonyo         |
-| ------------ | ------------------------------ | ------------------- |
+| ------------ | ------------------------------ | ------------------- 
 | ID           | 0544555457                     | 098197144X          |
-| ------------ | ------------------------------ | ------------------- |
 | Brightness   | 0.83                           | 0.52                |
-| ------------ | ------------------------------ | ------------------- |
 | Colorfulness | 59.8                           | 60.3                |
-| ------------ | ------------------------------ | ------------------- |
 | Entropy      | 6.8                            | 5.8                 |
-| ------------ | ------------------------------ | ------------------- |
 | UniqueColors | 87982                          | 34160               |
-| ------------ | -----------------------------  | ------------------- |
 | Keypoints    | 0.04                           | 0.01                |
-| ------------ | ------------------------------ | ------------------- |
 | Color1R      | 232                            | 229                 |
-| ------------ | ------------------------------ | ------------------- |
 | Color1G      | 246                            | 198                 |
-| ------------ | ------------------------------ | ------------------- |
 | Color1B      | 241                            | 146                 |
-| ------------ | ------------------------------ | ------------------- |
 | Color2R      | 208                            | 237                 |
-| ------------ | ------------------------------ | ------------------- |
 | Color2G      | 223                            | 212                 |
-| ------------ | ------------------------------ | ------------------- |
 | Color2B      | 132                            | 175                 |
+
+According to the feature `UniqueColors`, *Those Darn Squirrels Fly Down South* has more than twice as many different colors as *Bonyo Bonyo*. The sharp mind problably already noted this when the two covers were presented in the previous section! 
+
+
+Furthermore, we see a difference in the brightness of the two covers as well as RGB tones of their respective top colors. 
 
 
 Before going directly to the interesting results, let's first get a closer look of data.
 
 
-## Exploratory Analysis
+exploring sales rank and view score with plots etc.
 
 As the first exploratory plot we will examine the distribution of our initial response variable, `Sales Rank`, and also of the other possible response variable, `Review Score`.
+
 
 <div>
     <a href="https://plot.ly/~PernilleLindvang/29/?share_key=iZi3QuQyGwYe8FtqgDS4Y1" target="_blank" title="Plot 29" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/29.png?share_key=iZi3QuQyGwYe8FtqgDS4Y1" alt="Plot 29" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
     <script data-plotly="PernilleLindvang:29" sharekey-plotly="iZi3QuQyGwYe8FtqgDS4Y1" src="https://plot.ly/embed.js" async></script>
 </div>
-
-
 
 As seen in the above plot, our response variable follow a power-log distribution. Just as the literature says, plotting the distribution on a log-log scale the plot distribution becomes linear.
 
@@ -118,7 +125,7 @@ In the plot below we examine the correlation between the response variable, `Sal
 From this plot you can see each book with the `Title` and the corresponding `Review Score` and `Score Rank` when hovering over the datapoints.
 As seen in the above scatterplot the `Review Score` is not a categorical variable, but it does to a large extent act like one. We have taken out the books with a review score of 0 since this is due to the book not being reviewed. As it is seen from the above plot there are very limited reviews between the rest of the integers in the 1-5 scale. This might be due to the reviewers finding it too difficult to judge a book to be 3,6 instead of just 4.
 
-Furthermore, since we wish to explore the ability of predicting the `Sales Rank` or the `Review Score` based on visual features, `Entropy`, `Brightness`, and `Keypoints` are visualised against the two proposed response variables.
+Furthermore, since we wish to explore the ability of predicting the `Sales Rank` or the `Review Score` based on visual features, a few of the features, `Entropy`, `Brightness`, and `Keypoints`, are visualised against the two proposed response variables.
 
 <div>
     <a href="https://plot.ly/~PernilleLindvang/23/?share_key=K1Xfpn9oSEHqQQsvlrhDzW" target="_blank" title="Plot 23" style="display: block; text-align: center;"><img src="https://plot.ly/~PernilleLindvang/23.png?share_key=K1Xfpn9oSEHqQQsvlrhDzW" alt="Plot 23" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
@@ -135,16 +142,92 @@ Let's examine the same for `Review Score`.
 </div>
 
 
-Here, we see a very different pattern for the visual features and the response variable. Again, the plot is very affected by `Review Score` being a bit categorical in nature.
+In the figure above we see a very different pattern for the visual features and the response variable. Again, the plot is affected by `Review Score` being categorical in nature.
 
 Based on the two plots above it seems like the visual features alone might be better at predicting the `Sales Rank`than the `Review Score` since there were at least some kind of correlation.
 
-## Analysis
+<div id="judging" />
 
-In this section we will present to you the results of the boosted ensemble of trees from *CatBoost* together with the SciKit learn Random Forest model. The CatBoost is chosen due to better performance compared to the other libraries working with *SHAP*.
+# Time to Judge
+
+To unlock the link between the visual covers and the unknown `Sales Rank` and `Review Score` we will build a decision tree model: _The Random Forest_. 
+
+
+The Random Forest is an ensemble of severel decision trees, and therefore the name actually makes sense. The randomness occurs in the random subsampling of data called _bagging_. In simple words, the Random Forest will build multiple desicison trees, average the result from all of them in order to reach a more stable and reliable result.(REF: https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd)
+
+
+Our aim of this analysis is more than just predicting the `Sales Rank` with a certain accuracy: the aim is rather to understand _how_ the model actually takes in the visual features and how it comes from these inputs to the output. In order to visualise this we have used the SHAP approach which the curious reader can find more information about here.(REF)
+
+Below, the bar chart, based on the SHAP value, shows which visual features have the greatest weight when predicting the `Sales Rank`. We see that `Brightness` has almost twice as much influence on the output as the number of unique colors, `Unique Colors`. 
+
+![](https://i.imgur.com/0XZiX1U.png)
+
+Further to this rather simple barchart, we can visualise the visual feature importance with the plot below. Here we get more insights into _which direction_ the visual features are affecting the output of the `Sales Rank`. The red color resembles high values, and the blue color, low values. The impact can be seen from the y-axis. 
+As an example we can focus on again the top 3 features, `Brightness`,`UniqueColors`, and, `Entropy`.
+
+![](https://i.imgur.com/ZNDJ2qZ.png)
+
+
+1. `Brightness`
+Since the output of the model is a rank, the optimal is as low a value as possible. From the above plot we see that the higher values of Brightness will result in a lower value of the sales rank. 
+2. `UniqueColors`
+Subsequently, we see that the more unique colors the cover posseses, the lower than rank, and thereby the better the score.
+4. `Entropy`
+In contrast to the Brightness and the Unique Colors, higher values of Unique Colors will greaten the rank of the sale, and therefore lower values of Entropy is preferable. 
+
+## Comparison 
+So, with this introduction to the model and the results, it is now time to go back to our initial example: which of the initial proposed covers would have a higher `Sales Rank`?
+
+Let's refresh our memory with the two covers.
+
+
+Bonyo Bonyo       |  Those Darn Squirrels Fly South
+:-------------------------:|:-------------------------:
+![](https://i.imgur.com/nbMJsPu.jpg) | ![](https://i.imgur.com/bMU8bHa.jpg)
+
+Looking at the two bookcovers above it seems like "Those Darn Squirrels Fly Down South" has significantly brighter book cover, together with more unique colors, and the entropy (randomness) seems to be higher as well. 
+
+Further up in this datastory all the visual feature values can be found for these two book covers.
+For the sake of simplicity we will focus on the top three features in the light of importance for the `Sales Rank`. 
+
+| Title        | Those darn squirrels fly south | Bonyo Bonyo         |
+| ------------ | ------------------------------ | -------------------  |
+| Brightness   | 0.83                           | 0.52                |
+| ------------ | ------------------------------ | -------------------  |
+| UniqueColors | 87982                          | 34160               |
+| ------------ | -----------------------------  | -------------------|
+| Entropy      | 6.8                            | 5.8                 |
+| ------------ | ------------------------------ | -------------------
+
+
+Just as it seemed like by looking at the covers, it is seen how "Those Darn Squirrels Fly Down South" has a higher value than "Bonyo Bonyo" for the Brughtness feature. Subsequently, it is seen how the number of unique values are also higher, as well as the Entropy. 
+
+So based on our model, "Those Darn Squirrels Fly Down South" should be having a higher `Sales Rank`. Looking into the ranking for the two books give the following result:
+
+| Title        | Those darn squirrels fly south | Bonyo Bonyo         |
+| ------------ | ------------------------------ | -------------------  |
+| Sales Rank   | 10244                          | 1786788                |
+| ------------ | ------------------------------ | ------------------- 
+
+
+Wauw... What a relief and what a coincidence! Just almost a factor 200 better ranking than "Bonyo Bonyo". This example is surely not cherry picked.. So, is the model just perfect, or?
 
 
 
-## Conclusion
+<div id="drawbacks" />
+
+# Our Model Is Flawed. And So Are Your Heros
+## Tricked by Harry Potter
+example
+## General flaws
+popularity of books: books very popular covers do not matter
+
+children's books? too broad? account for age
+
+**drops the mic**
+
+<div id="conclusion" />
+
+# Conclusion
 
 In this project we have seen that ...
