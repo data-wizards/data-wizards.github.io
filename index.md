@@ -23,8 +23,9 @@ Also, check out [the code for our detailed analysis](https://github.com/dogateki
 
 # Table of Contents
 1. [The Data](#data)
-    - [Feature Extraction](#feature-extraction)
     - [Data Collection](#collection)
+    - [Feature Extraction](#feature-extraction)
+    - [Data Exploration](#exploration)
 3. [Judging Covers](#judging)
     - [Sales Rank](#sales-rank)
     - [Review Score](#review-score)
@@ -41,17 +42,17 @@ What do we need to do Data Science? Data, of course!
 <div id='collection'/>
 
 ## Data Collection
-We have scraped the cover images of and basic information on around 13000 books listed on Amazon (maybe reference). The book information has the following format: (doga should improve this part)
+We have scraped the cover images of and basic information on around 13000 books listed on Amazon. The book information has the following format:
 
 | ID | Review Score | Sales Rank | Title | Author | Date    |
 | -- | ------------ | ---------- | ----- | ------ | ------- | 
 | ID | Review Score | Sales Rank | Title | Author | Date    | 
 
-One thing we had to keep in mind while collecting the data was the book catefories. Different types of covers may work better for different categories of books (e.g. dark covers might be good for horror books but not so much for children's books), and we may see effects in specific categories that are not observable when looking at all of them (and vice versa), i.e. the so-called [Simpson's paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox)!
+One thing we had to keep in mind while collecting the data was the book categories. Different types of covers may work better for different categories of books (e.g. dark covers might be good for horror books but not so much for children's books), and we may see effects in specific categories that are not observable when looking at all of them (and vice versa), i.e. the so-called [Simpson's paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox)!
 
-<img src="https://i.imgur.com/kdm6iQY.gif" width=300>
+![](https://i.imgur.com/kdm6iQY.gif)
 
-In order to avoid encountering the Simpson's paradox, we separated the books by category such that our samples come from the same distribution (more or less). We do not want to compare apples to oranges, and this specification allows us to account for the changes in sales and reviews within categories. We intuitively believe children's books will be the genre that is most dependent on the visual features of their covers, and therefore our analysis will be done based only on these. 
+In order to avoid encountering the Simpson's paradox, we only focused on books from the same category so that our samples come from the same distribution (more or less). We do not want to compare apples to oranges, and this specification allows us to account for the changes in sales and reviews within categories. We intuitively believe children's books will be the genre that is most dependent on the visual features of their covers, and therefore our analysis will be done based only on these. 
 
 
 <div id='feature-extraction'/>
@@ -59,24 +60,25 @@ In order to avoid encountering the Simpson's paradox, we separated the books by 
 ## Feature Extraction
 So, in order to judge a book based on its cover, we will need data that quantifies the cover characteristics! From each image, we extracted the semantically meaningful visual features as shown in the tree plot below.
 
-<iframe src="https://github.com/data-wizards/data-wizards.github.io/blob/master/dendogram.html" width="100%" height="400px"></iframe>
-
+<iframe src="https://data-wizards.github.io/dendogram.html" width="100%" height="550px"></iframe>
 
 Before seeing what the features look like for our two book cover examples, let's quickly break down what each of the features represents:
 
-- Brightness: Measure between x and y of how bright a book cover is. Calculated as 
-- Colorfulness: Measure between a and b of how colorful a book cover is.
-- Entropy: Measure between c and d of how so-called random a book cover is. Computed as
-- UniqueColors: The number of unique colors present in a book cover. Each RGB representation corresponds to a unique color. 
-- Keypoints: Measure between j and k of how complex a book cover
-- Color1R: 
-- Color1G: 
-- Color1B: 
-- Color2R: 
-- Color2G: 
-- Color2B: 
+- `Brightness`: Brightness measure between x and y , where x corresponds to . Calculated as 
+- `Colorfulness`: Measure between a and b of how colorful a book cover is.
+- `Entropy`: Measure between c and d of how so-called random a book cover is. Computed as
+- `UniqueColors`: The number of unique colors present in a book cover. Each RGB representation corresponds to a unique color. 
+- `Keypoints`: Measure between j and k of how complex a book cover
+- Color1R: of the most dominant color
+- `Color1G`: Amount of red in RGB representation of the most dominant color
+- `Color1B`: Amount of blue in RGB representation of the most dominant color
+- `Color1B`: Amount of blue in RGB representation of the most dominant color
+- `Color2R`: Amount of red in RGB representation of the second-most dominant color
+- `Color2G`: Amount of green in RGB representation of the second-most dominant color
+- `Color2B`: Amount of blue in RGB representation of the second-most dominant color
 
 
+Now, let's investigate the values for our two book cover examples:
 
 | Title        | Those darn squirrels fly south | Bonyo Bonyo         |
 | ------------ | ------------------------------ | ------------------- 
@@ -93,14 +95,15 @@ Before seeing what the features look like for our two book cover examples, let's
 | Color2G      | 223                            | 212                 |
 | Color2B      | 132                            | 175                 |
 
-According to the feature `UniqueColors`, *Those Darn Squirrels Fly Down South* has more than twice as many different colors as *Bonyo Bonyo*. The sharp mind problably already noted this when the two covers were presented in the previous section! 
-
+According to the feature `UniqueColors`, *Those Darn Squirrels Fly Down South* has more than twice as many different colors as *Bonyo Bonyo*. The sharp mind probably already noted this when the two covers were presented in the previous section! 
 
 Furthermore, we see a difference in the brightness of the two covers as well as RGB tones of their respective top colors. 
 
+Before going directly to the interesting results, let's first get a closer look at the data.
 
-Before going directly to the interesting results, let's first get a closer look of data.
+<div id='exploration'/>
 
+## Exploration
 
 exploring sales rank and view score with plots etc.
 
@@ -150,7 +153,7 @@ Based on the two plots above it seems like the visual features alone might be be
 
 # Time to Judge
 
-To unlock the link between the visual covers and the unknown `Sales Rank` and `Review Score` we will build a decision tree model: _The Random Forest_. 
+To unlock the link between the visual covers and the unknown `Sales Rank` and `Review Score` we will build an ensemble decision tree model: _The Random Forest_. 
 
 
 The Random Forest is an ensemble of severel decision trees, and therefore the name actually makes sense. The randomness occurs in the random subsampling of data called _bagging_. In simple words, the Random Forest will build multiple desicison trees, average the result from all of them in order to reach a more stable and reliable result.(REF: https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd)
@@ -178,12 +181,11 @@ In contrast to the Brightness and the Unique Colors, higher values of Unique Col
 ## Comparison 
 So, with this introduction to the model and the results, it is now time to go back to our initial example: which of the initial proposed covers would have a higher `Sales Rank`?
 
-Let's refresh our memory with the two covers.
+Let's refresh our memory with the two covers:
 
-
-Bonyo Bonyo       |  Those Darn Squirrels Fly South
+Those Darn Squirrels Fly South |  Bonyo Bonyo
 :-------------------------:|:-------------------------:
-![](https://i.imgur.com/nbMJsPu.jpg) | ![](https://i.imgur.com/bMU8bHa.jpg)
+![](https://i.imgur.com/bMU8bHa.jpg) | ![](https://i.imgur.com/nbMJsPu.jpg) 
 
 Looking at the two bookcovers above it seems like "Those Darn Squirrels Fly Down South" has significantly brighter book cover, together with more unique colors, and the entropy (randomness) seems to be higher as well. 
 
@@ -193,11 +195,8 @@ For the sake of simplicity we will focus on the top three features in the light 
 | Title        | Those darn squirrels fly south | Bonyo Bonyo         |
 | ------------ | ------------------------------ | -------------------  |
 | Brightness   | 0.83                           | 0.52                |
-| ------------ | ------------------------------ | -------------------  |
 | UniqueColors | 87982                          | 34160               |
-| ------------ | -----------------------------  | -------------------|
 | Entropy      | 6.8                            | 5.8                 |
-| ------------ | ------------------------------ | -------------------
 
 
 Just as it seemed like by looking at the covers, it is seen how "Those Darn Squirrels Fly Down South" has a higher value than "Bonyo Bonyo" for the Brughtness feature. Subsequently, it is seen how the number of unique values are also higher, as well as the Entropy. 
@@ -207,7 +206,6 @@ So based on our model, "Those Darn Squirrels Fly Down South" should be having a 
 | Title        | Those darn squirrels fly south | Bonyo Bonyo         |
 | ------------ | ------------------------------ | -------------------  |
 | Sales Rank   | 10244                          | 1786788                |
-| ------------ | ------------------------------ | ------------------- 
 
 
 Wauw... What a relief and what a coincidence! Just almost a factor 200 better ranking than "Bonyo Bonyo". This example is surely not cherry picked.. So, is the model just perfect, or?
